@@ -4,15 +4,22 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import { Test, Button } from "./Components"
+import { Test, FeedView, PhotoView, MapView } from "./Components"
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Route path="/" exact component={Test} />
-        <Route path="/1" exact component ={Button}/>
-      </Router>
+      <div>
+        <Router>
+          <Route path="/" exact component={Test} />
+          <Route path="/feed" exact component={FeedView} />
+          <Route path="/photo" exact component={PhotoView} />
+          <Route path="/map" exact component={MapView} />
+        </Router>
+        <a href="feed">Feed</a> <br />
+        <a href="photo">Photo</a> <br />
+        <a href="map">Map</a> <br />
+      </div>
     );
   }
 }
