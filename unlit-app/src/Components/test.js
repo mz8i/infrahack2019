@@ -17,7 +17,7 @@ export default class Book extends Component {
 
   async loadBooks()
   {
-    const promise = await axios.get("http://localhost:3000/test");
+    const promise = await axios.get("http://localhost:8080/test");
     const status = promise.status;
     if(status===200)
     {
@@ -29,7 +29,7 @@ export default class Book extends Component {
   render() {
     return(
       <div>
-        <h1>Da bois</h1>
+        <h1>Books</h1>
             {this.state.books.map((value,index)=>{return <h4 key={index}>{value}</h4>})}
       </div>
     )

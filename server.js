@@ -8,7 +8,7 @@ const serve = require("koa-static");
 const mount = require("koa-mount");
 const respond = require('koa-respond')
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 const router = new koaRouter()
 

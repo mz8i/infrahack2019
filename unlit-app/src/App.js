@@ -4,14 +4,15 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Test from "./Component/Test/index";
+import { Test, Button } from "./Components"
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Route path="/" exact component={Test} />
-    </Router>
+        <Route path="/1" exact component ={Button}/>
+      </Router>
     );
   }
 }
