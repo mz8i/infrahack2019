@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mz8i/infrahack2019#readme",
   "dependencies": {
+    "create-react-app": "^3.0.1",
     "http-status": "^1.3.2",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",

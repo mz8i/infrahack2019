@@ -17,9 +17,9 @@ const routes = [
   method: 'get',
   path: '/test',
   handler: async ctx => {
-    const books = ["Maciek", "Ignas", "Alexis"];
+    const guys = ["Maciek", "Ignas", "Alexis"];
 
-    ctx.ok(books)
+    ctx.ok(guys)
     }
   }
 ]
@@ -28,7 +28,13 @@ router.route(routes)
 
 const app = new Koa()
 
+// SERVES FRONTEND
+const static_pages = new Koa();
+static_pages.use(serve(__dirname + "/unlit-app/build")); //serve the build directory
+app.use(mount("/", static_pages));
+
 app
+  .use(cors())
   .use(respond())
   .use(router.middleware())
 
