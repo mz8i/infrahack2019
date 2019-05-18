@@ -54,7 +54,19 @@ export default class PhotoView extends Component {
 
     onFormSubmit(e) {
         e.preventDefault();
-        console.log('Submit form');
+
+        const data = new FormData(e.target);
+        const {latitude, longitude } = this.state.viewport;
+        data.append('timestamp', new Date());
+        data.append('latitude', latitude);
+        data.append('longitude', longitude);
+        data.append('image', this.state.dataUri);
+
+        fetch('/api/submission', {
+            method: 'POST',
+            body: data
+        });
+
         this.props.history.push('/map');
     }
 
@@ -63,13 +75,14 @@ export default class PhotoView extends Component {
         return <div>
                 <Camera onTakePhoto = { (dataUri) => this.onTakePhoto(dataUri)}/>
                 <Modal
+                    className='photo-submit-modal'
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
                 >
                     <ReactMapGL
+                        width="100vh"
+                        height="80vh"
                         {...viewport}
-                        width="100%"
-                        height="80%"
                         mapStyle="mapbox://styles/mapbox/dark-v9"
                         onViewportChange={this.onViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -85,12 +98,12 @@ export default class PhotoView extends Component {
                             latitude={this.state.viewport.latitude}
                             longitude={this.state.viewport.longitude}
                         >
-                        <img src="MapMarker.svg" style={{position: 'relative', left:'-26px', top:'-64px'}}></img>
+                            <img src="icons/MapMarker.svg" style={{position: 'relative', left:'-26px', top:'-64px'}}></img>
                         </Marker>
                     </ReactMapGL>
-                    <form onSubmit={this.onFormSubmit}>
+                    <form className='photo-form' onSubmit={this.onFormSubmit} action=''>
                         <input type="text" placeholder="Do you know what company this is?"></input>
-                        <input type="text" placeholder="Any comments?"></input>
+                        <input type="text" placeholder="Comments?"></input>
                         <input type="submit" title="Send report"></input>
                     </form>
                 </Modal>

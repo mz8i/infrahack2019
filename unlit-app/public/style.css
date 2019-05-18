@@ -27,3 +27,18 @@ nav {
 nav a {
     color: gray;
 }
+
+.photo-submit-modal {
+    width:100vw;
+    height:100vh;
+    padding:0;
+    background-color: white;
+}
+
+.photo-submit-map {
+    
+}
+
+.photo-form * {
+    margin: 0px auto;
+}
