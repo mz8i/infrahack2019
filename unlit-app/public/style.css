@@ -14,19 +14,24 @@ main, body {
 }
 
 .active-nav {
-    color: white;
+    color: red;
 }
 
 nav {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  padding: 0 10% 0;
-  display: flex;
-  justify-content: space-between;   /* horizontal alignment */
-  align-items: center;              /* vertical alignment */
-  background-color: black;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: black;
+}
+
+nav .inner {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;   /* horizontal alignment */
+    align-items: center;              /* vertical alignment */
+    margin: 0px auto;
 }
 
 nav a {

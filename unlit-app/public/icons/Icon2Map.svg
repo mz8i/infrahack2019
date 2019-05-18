@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="24px" viewBox="0 0 27 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon2Map</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon2Map" transform="translate(0.000000, -1.000000)" fill="#C6C5C6" fill-rule="nonzero">
+            <path d="M3.30734131,3.44105294 L8.83636364,2.16532722 L8.83636364,23.0416947 L0.981818182,24.8545042 L0.981818182,6.36424999 C0.981818182,4.96724302 1.94609911,3.7551359 3.30734131,3.44105294 Z" id="Path"></path>
+            <polygon id="Path" points="9.81818182 2.17348384 17.1818182 3.97252906 17.1818182 24.3722439 9.81818182 23.0233423"></polygon>
+            <path d="M24.1415341,21.8210518 L18.1636364,24.2351106 L18.1636364,3.93633405 L26.0181818,1.21762955 L26.0181818,19.0393114 C26.0181818,20.2624179 25.2756557,21.3630586 24.1415341,21.8210518 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>
