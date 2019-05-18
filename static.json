@@ -1,0 +1,7 @@
+{
+    "root": "/unlit-app",
+    "clean_urls": false,
+    "routes": {
+        "/**": "public/index.html"
+    }
+}
