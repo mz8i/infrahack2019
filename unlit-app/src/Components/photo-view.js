@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Camera from 'react-html5-camera-photo';
+import Camera, { FACING_MODES } from 'react-html5-camera-photo';
 import Modal from 'react-modal';
 import 'react-html5-camera-photo/build/css/index.css';
 import ReactMapGL, {GeolocateControl, Marker} from 'react-map-gl';
@@ -24,7 +24,7 @@ export default class PhotoView extends Component {
             modalIsOpen: false,
             dataUri: null,
             viewport: {
-                latitude: 37.8,
+                latitude: 51,
                 longitude: 0,
                 zoom: 3,
                 bearing: 0,
@@ -52,17 +52,23 @@ export default class PhotoView extends Component {
         this.setState({viewport});
     }
 
-    onFormSubmit(e) {
+    async onFormSubmit(e) {
         e.preventDefault();
 
-        const data = new FormData(e.target);
-        const {latitude, longitude } = this.state.viewport;
-        data.append('timestamp', new Date());
-        data.append('latitude', latitude);
-        data.append('longitude', longitude);
-        data.append('image', this.state.dataUri);
+        const formData = new FormData(e.target);
 
-        fetch('/api/submission', {
+        const data = {
+            latitude: this.state.viewport.latitude,
+            longitude: this.state.viewport.longitude,
+            timestamp: new Date().toUTCString(),
+            image: this.state.dataUri,
+            company: formData.get('company'),
+            comment: formData.get('comment')
+        };
+
+        console.log(data);
+
+        await fetch('/api/submission', {
             method: 'POST',
             body: data
         });
@@ -73,7 +79,10 @@ export default class PhotoView extends Component {
     render() {
         const {viewport} = this.state;
         return <div>
-                <Camera onTakePhoto = { (dataUri) => this.onTakePhoto(dataUri)}/>
+                <Camera
+                    onTakePhoto = { (dataUri) => this.onTakePhoto(dataUri)}
+                    idealFacingMode={FACING_MODES.ENVIRONMENT}
+                />
                 <Modal
                     className='photo-submit-modal'
                     isOpen={this.state.modalIsOpen}
@@ -102,8 +111,8 @@ export default class PhotoView extends Component {
                         </Marker>
                     </ReactMapGL>
                     <form className='photo-form' onSubmit={this.onFormSubmit} action=''>
-                        <input type="text" placeholder="Do you know what company this is?"></input>
-                        <input type="text" placeholder="Comments?"></input>
+                        <input name='company' type="text" placeholder="Do you know what company this is?"></input>
+                        <input name='comment' type="text" placeholder="Comments?"></input>
                         <input type="submit" title="Send report"></input>
                     </form>
                 </Modal>
