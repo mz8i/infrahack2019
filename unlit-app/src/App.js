@@ -15,14 +15,16 @@ class App extends Component {
           <Route path="/photo" exact component={PhotoView} />
           <Route path="/map" exact component={MapView} />
           <nav>
-            <div>
-              <NavLink to='/feed' activeClassName='active-nav'>Feed</NavLink>
-            </div>
-            <div>
-              <NavLink to='/photo' activeClassName='active-nav'>Photo</NavLink>
-            </div>
-            <div>
-              <NavLink to='/map' activeClassName='active-nav'>Map</NavLink>
+            <div className='inner'>
+              <div>
+                <NavLink to='/feed' activeClassName='active-nav'><img src='icons/Icon1Feed.svg'></img></NavLink>
+              </div>
+              <div>
+              <NavLink to='/photo' activeClassName='active-nav'><img src='icons/Icon3Camera.svg'></img></NavLink>
+              </div>
+              <div>
+              <NavLink to='/map' activeClassName='active-nav'><img src='icons/Icon2Map.svg'></img></NavLink>
+              </div>
             </div>
           </nav>
         </Router>
