@@ -17,10 +17,21 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className='feed-container'>
-        <div className='image1'></div>
+      <div className='feed-wrapper'>
 
-        <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
+        <div className='feed-container'>
+          <div className='images'><img src="./assets/image1.jpg" alt="one"></img></div>
+          <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
+        </div>
+        <div className='feed-container'>
+          <div className='images'><img src="./assets/image2.jpg" alt="two"></img></div>
+          <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
+        </div>
+        <div className='feed-container'>
+          <div className='images'><img src="./assets/image3.jpg" alt="three"></img></div>
+          <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
+        </div>
+
       </div>
     );
   }
