@@ -1,0 +1,29 @@
+main, body {
+    /* background-color: black; */
+}
+
+#root {
+    /* background-color: white;
+    width: 100vh;
+    height: 100vh;
+
+    max-width: 375px !important;
+    max-height: 667px !important;
+
+    margin: 0px auto; */
+}
+
+.active-nav {
+    color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;   /* horizontal alignment */
+  align-items: center;              /* vertical alignment */
+  background-color: black;
+}
+
+nav a {
+    color: gray;
+}
