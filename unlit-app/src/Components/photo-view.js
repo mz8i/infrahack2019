@@ -89,7 +89,7 @@ export default class PhotoView extends Component {
                     <form onSubmit={this.onFormSubmit}>
                         <input type="text" placeholder="Do you know what company this is?"></input>
                         <input type="text" placeholder="Any comments?"></input>
-                        <input type="submit">Send report</input>
+                        <input type="submit" title="Send report"></input>
                     </form>
                 </Modal>
             </div>
