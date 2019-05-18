@@ -18,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='feed-wrapper'>
-
+      <h1 className='header'>Feed</h1>
         <div className='feed-container'>
           <div className='images'><img src="./assets/image1.jpg" alt="one"></img></div>
           <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
