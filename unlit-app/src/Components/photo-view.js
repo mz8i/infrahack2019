@@ -52,8 +52,10 @@ export default class PhotoView extends Component {
         this.setState({viewport});
     }
 
-    onFormSubmit() {
-        console.log('Submit form')
+    onFormSubmit(e) {
+        e.preventDefault();
+        console.log('Submit form');
+        this.props.history.push('/map');
     }
 
     render() {
@@ -67,7 +69,7 @@ export default class PhotoView extends Component {
                     <ReactMapGL
                         {...viewport}
                         width="100%"
-                        height="100%"
+                        height="80%"
                         mapStyle="mapbox://styles/mapbox/dark-v9"
                         onViewportChange={this.onViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -80,10 +82,10 @@ export default class PhotoView extends Component {
                             trackUserLocation={true}
                         ></GeolocateControl>
                         <Marker
-                            latitude={0}
-                            longitude={0}
-                            draggable={true}
+                            latitude={this.state.viewport.latitude}
+                            longitude={this.state.viewport.longitude}
                         >
+                        <img src="MapMarker.svg" style={{position: 'relative', left:'-26px', top:'-64px'}}></img>
                         </Marker>
                     </ReactMapGL>
                     <form onSubmit={this.onFormSubmit}>
