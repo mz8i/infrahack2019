@@ -54,7 +54,9 @@ nav a {
 .photo-form * {
   display: block;
   margin: 10px auto;
-  min-width: 500px;
+  width: 500px;
+  max-width: 90% !important;
+  height: 30px;
   box-sizing: border-box;
 }
 

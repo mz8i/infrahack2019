@@ -21,6 +21,7 @@ export default class PhotoView extends Component {
         super();
 
         this.state = {
+            showCamera: true,
             modalIsOpen: false,
             dataUri: null,
             viewport: {
@@ -41,7 +42,8 @@ export default class PhotoView extends Component {
     onTakePhoto(dataUri) {
         this.setState({
             dataUri: dataUri,
-            modalIsOpen: true
+            modalIsOpen: true,
+            showCamera: false
         });
     }
 
@@ -83,11 +85,11 @@ export default class PhotoView extends Component {
     render() {
         const {viewport} = this.state;
         return <div>
-                <Camera
+                {this.state.showCamera && <Camera
                     onTakePhoto = { (dataUri) => this.onTakePhoto(dataUri)}
                     idealFacingMode={FACING_MODES.ENVIRONMENT}
                     isImageMirror={false}
-                />
+                />}
                 <Modal
                     className='photo-submit-modal'
                     isOpen={this.state.modalIsOpen}
