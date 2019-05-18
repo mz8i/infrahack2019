@@ -52,3 +52,20 @@ nav a {
 .photo-form * {
     margin: 0px auto;
 }
+
+.feed-container {
+  border: 5px solid red;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image1 {
+  display: flex;
+  height: 200px;
+  background-color: blue;
+  background-image: url('./assets/image1.jpg')
+  
+}
