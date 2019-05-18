@@ -58,6 +58,7 @@ export default class PhotoView extends Component {
         const formData = new FormData(e.target);
 
         const data = {
+            author: 'Jack',
             latitude: this.state.viewport.latitude,
             longitude: this.state.viewport.longitude,
             timestamp: new Date().toUTCString(),
@@ -70,7 +71,10 @@ export default class PhotoView extends Component {
 
         await fetch('/api/submission', {
             method: 'POST',
-            body: data
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
 
         this.props.history.push('/map');
@@ -82,6 +86,7 @@ export default class PhotoView extends Component {
                 <Camera
                     onTakePhoto = { (dataUri) => this.onTakePhoto(dataUri)}
                     idealFacingMode={FACING_MODES.ENVIRONMENT}
+                    isImageMirror={false}
                 />
                 <Modal
                     className='photo-submit-modal'
