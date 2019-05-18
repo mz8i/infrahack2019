@@ -60,6 +60,7 @@ export default class MapView extends Component {
                         longitude={value.longitude}
                     >
                         <img src="icons/MapMarker.svg" style={{ position: 'relative', left: '-26px', top: '-64px' }}></img>
+                        
                     </Marker>
                 })}
             </ReactMapGL>

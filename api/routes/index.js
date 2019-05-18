@@ -4,7 +4,7 @@ dotenv.config();
 
 var pg = require('knex')({
   client: 'pg',
-  connection: process.env.POSTGRES_URL,
+  connection: process.env.DATABASE_URL,
   
   searchPath: ['knex', 'public'],
 });

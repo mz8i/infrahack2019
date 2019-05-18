@@ -29,15 +29,16 @@ nav a {
 }
 
 .photo-submit-modal {
-    width:100vw;
-    height:100vh;
-    padding:0;
-    background-color: black;
+  position: relative;
+  width:100vw;
+  height:100vh;
+  padding:0;
+  background-color: black;
+  z-index: 100;
 }
 
 .photo-submit-map-container {
-  height:80vh;
-
+  height:70%;
 }
 
 .photo-submit-map {
@@ -46,13 +47,15 @@ nav a {
 }
 
 .photo-form {
-  height: 20vh;
+  height: 30%;
   width: 100%;
 }
 
 .photo-form * {
-  margin: 5px auto;
-  width: 60%;
+  display: block;
+  margin: 10px auto;
+  min-width: 500px;
+  box-sizing: border-box;
 }
 
 .feed-container {
