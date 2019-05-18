@@ -20,7 +20,7 @@ export default class App extends React.Component {
       <div className='feed-container'>
         <div className='image1'></div>
 
-        <p style={{ textAlign: 'center' }}>I see this bright lights every night I walk home</p>
+        <p style={{ textAlign: 'center' }}>I see these bright lights every night I walk home...</p>
       </div>
     );
   }
