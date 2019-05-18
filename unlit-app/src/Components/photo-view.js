@@ -93,32 +93,43 @@ export default class PhotoView extends Component {
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
                 >
-                    <ReactMapGL
-                        width="100vh"
-                        height="80vh"
-                        {...viewport}
-                        mapStyle="mapbox://styles/mapbox/dark-v9"
-                        onViewportChange={this.onViewportChange}
-                        mapboxApiAccessToken={MAPBOX_TOKEN}
-                        children={this.props.children}
-                    >
-                        <GeolocateControl
-                            style={geolocateStyle}
+                    <div className='photo-submit-map-container'>
+                        <ReactMapGL
+                            className='photo-submit-map'
+                            width="100%"
+                            height="100%"
+                            {...viewport}
+                            mapStyle="mapbox://styles/mapbox/dark-v9"
                             onViewportChange={this.onViewportChange}
-                            positionOptions={{ enableHighAccuracy: true }}
-                            trackUserLocation={true}
-                        ></GeolocateControl>
-                        <Marker
-                            latitude={this.state.viewport.latitude}
-                            longitude={this.state.viewport.longitude}
+                            mapboxApiAccessToken={MAPBOX_TOKEN}
+                            children={this.props.children}
                         >
-                            <img src="icons/MapMarker.svg" style={{position: 'relative', left:'-26px', top:'-64px'}}></img>
-                        </Marker>
-                    </ReactMapGL>
+                            <GeolocateControl
+                                style={geolocateStyle}
+                                onViewportChange={this.onViewportChange}
+                                positionOptions={{ enableHighAccuracy: true }}
+                                trackUserLocation={true}
+                            ></GeolocateControl>
+                            <Marker
+                                latitude={this.state.viewport.latitude}
+                                longitude={this.state.viewport.longitude}
+                                offsetLeft={-26}
+                                offsetTop={-64}
+                            >
+                                <img src="icons/MapMarker.svg" ></img>
+                            </Marker>
+                        </ReactMapGL>
+                    </div>
                     <form className='photo-form' onSubmit={this.onFormSubmit} action=''>
-                        <input name='company' type="text" placeholder="Do you know what company this is?"></input>
-                        <input name='comment' type="text" placeholder="Comments?"></input>
-                        <input type="submit" title="Send report"></input>
+                        <div>
+                            <input name='company' type="text" placeholder="Do you know what company this is?"></input>
+                        </div>
+                        <div>
+                            <input name='comment' type="text" placeholder="Comments?"></input>
+                        </div>
+                        <div>
+                            <input type="submit" value="Send"></input>
+                        </div>
                     </form>
                 </Modal>
             </div>

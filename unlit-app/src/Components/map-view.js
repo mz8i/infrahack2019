@@ -46,8 +46,8 @@ export default class MapView extends Component {
         const { viewport } = this.state;
         return (
             <ReactMapGL
-                width="100vh"
-                height="80vh"
+                width="100%"
+                height="100%"
                 {...viewport}
                 mapStyle="mapbox://styles/mapbox/dark-v9"
                 onViewportChange={this.onViewportChange}

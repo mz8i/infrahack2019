@@ -11,15 +11,6 @@ var pg = require('knex')({
 
 const routes = [
   {
-  method: 'get',
-  path: '/test',
-  handler: async ctx => {
-    const guys = ["Maciek", "Ignas", "Alexis"];
-
-    ctx.ok(guys)
-    }
-  },
-  {
     method: 'post',
     path: '/api/submission',
     handler: async ctx => {
@@ -45,7 +36,7 @@ const routes = [
     path: '/api/photos',
     handler: async ctx => {
       const photos = await pg('photos')
-        .select(['image_position', 'image_base64']);
+        .select(['image_position', 'image_base64', 'company']);
 
       ctx.ok(photos);
     }
