@@ -14,13 +14,13 @@ exports.up = async (knex) => {
     // t.enu('status', [ 'active', 'application_started', 'inactive', 'pending_approval', 'suspended' ]).defaultTo('pending_approval')
     // t.timestamps(false, true)
     // t.timestamp('deleted_at')
-    await knex.raw('CREATE EXTENSION postgis;')
+    await knex.raw('CREATE EXTENSION IF NOT EXISTS postgis;')
 
     await knex.raw(`
       CREATE TABLE photos (
         id SERIAL PRIMARY KEY,
         author VARCHAR(100) NOT NULL,
-        image_url VARCHAR(1000) NOT NULL,
+        image_base64 TEXT NOT NULL,
         image_position POINT NOT NULL,
         image_time TIMESTAMP NOT NULL,
         company VARCHAR(500),
