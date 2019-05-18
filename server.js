@@ -1,28 +1,18 @@
 const Koa = require("koa");
 const koaRouter = require('koa-joi-router')
 const HttpStatus = require("http-status");
-const BodyParser = require("koa-bodyparser");
+const bodyParser = require("koa-bodyparser");
 const Logger = require("koa-logger");
 const cors = require('koa-cors');
 const serve = require("koa-static");
 const mount = require("koa-mount");
 const respond = require('koa-respond')
 
+const { routes } = require('./api/routes')
+
 const PORT = process.env.PORT || 8080
 
 const router = new koaRouter()
-
-const routes = [
-  {
-  method: 'get',
-  path: '/test',
-  handler: async ctx => {
-    const guys = ["Maciek", "Ignas", "Alexis"];
-
-    ctx.ok(guys)
-    }
-  }
-]
 
 router.route(routes)
 
@@ -35,6 +25,15 @@ app.use(mount("/", static_pages));
 
 app
   .use(cors())
+  .use(bodyParser({
+    formidable:{
+        uploadDir: './uploads',
+        keepExtensions: true
+    },
+    multipart: true,
+    strict: false, //allow application.json !
+    urlencoded: true
+}))
   .use(respond())
   .use(router.middleware())
 
